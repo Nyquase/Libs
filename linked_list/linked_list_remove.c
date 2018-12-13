@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2018
-** zappy
-** File description:
-** Linked list implementation
-*/
-
 #include <stdlib.h>
 #include "linked_list.h"
 

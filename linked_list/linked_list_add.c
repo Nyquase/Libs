@@ -1,30 +1,24 @@
-/*
-** EPITECH PROJECT, 2018
-** zappy
-** File description:
-** Linked list implementation
-*/
-
 #include <stdlib.h>
 #include <string.h>
 #include "linked_list.h"
 
-static node_t *createNode(const void *data, size_t dataSize)
+
+static node_t *create_node(const void *data, size_t data_size)
 {
 	node_t *new = calloc(sizeof(node_t), 1);
 
 	if (!new)
 		return NULL;
-	new->data = malloc(dataSize);
+	new->data = malloc(data_size);
 	if (!new->data)
 		return NULL;
-	memcpy(new->data, data, dataSize);
+	memcpy(new->data, data, data_size);
 	return new;
 }
 
-bool ll_push_back(linked_list_t *list, const void *data, size_t dataSize)
+bool ll_push_back(linked_list_t *list, const void *data, size_t data_size)
 {
-	node_t *new = createNode(data, dataSize);
+	node_t *new = create_node(data, data_size);
 
 	if (!new)
 		return false;
@@ -40,9 +34,9 @@ bool ll_push_back(linked_list_t *list, const void *data, size_t dataSize)
 	return true;
 }
 
-bool ll_push_front(linked_list_t *list, const void *data, size_t dataSize)
+bool ll_push_front(linked_list_t *list, const void *data, size_t data_size)
 {
-	node_t *new = createNode(data, dataSize);
+	node_t *new = create_node(data, data_size);
 
 	if (!new)
 		return false;
@@ -59,12 +53,12 @@ bool ll_push_front(linked_list_t *list, const void *data, size_t dataSize)
 }
 
 bool ll_insert_after(linked_list_t *list, node_t *node,
-		     const void *data, size_t dataSize)
+		     const void *data, size_t data_size)
 {
 	if (node == list->tail)
-		return ll_push_back(list, data, dataSize);
+		return ll_push_back(list, data, data_size);
 
-	node_t *new = createNode(data, dataSize);
+	node_t *new = create_node(data, data_size);
 
 	if (!new)
 		return false;
@@ -77,12 +71,12 @@ bool ll_insert_after(linked_list_t *list, node_t *node,
 }
 
 bool ll_insert_before(linked_list_t *list, node_t *node,
-		     const void *data, size_t dataSize)
+		     const void *data, size_t data_size)
 {
 	if (node == list->head)
-		return ll_push_front(list, data, dataSize);
+		return ll_push_front(list, data, data_size);
 
-	node_t *new = createNode(data, dataSize);
+	node_t *new = create_node(data, data_size);
 
 	if (!new)
 		return false;

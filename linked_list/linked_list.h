@@ -1,24 +1,18 @@
-/*
-** EPITECH PROJECT, 2018
-** zappy
-** File description:
-** who cares
-*/
-
 #pragma once
 
 #include <stddef.h>
 #include <stdbool.h>
-#include <stdint.h>
 
-typedef struct node_s {
+typedef struct node_s node_t;
+struct node_s {
     void *data;
-    struct node_s *next;
-    struct node_s *prev;
-} node_t;
+    node_t *next;
+    node_t *prev;
+};
 
 /*
-** A linked list should be zero-initialized
+** A linked list should be initialized like that :
+** linked_list_t list = {0};
 */
 typedef struct {
     node_t *head;
@@ -37,6 +31,7 @@ void ll_destroy(linked_list_t *list);
 void *ll_get_if(linked_list_t *list, compare_func_t, const void *comp);
 
 // Add
+// Every adding function will make a deep copy of the data
 bool ll_insert_after(linked_list_t *list, node_t *node,
 		     const void *data, size_t dataSize);
 bool ll_insert_before(linked_list_t *list, node_t *node,
