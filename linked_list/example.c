@@ -76,7 +76,8 @@ int main() {
   print_list(&list);
 
   printf("Getting first node containing 3\n");
-  info_t *info = ll_get_if(&list, cmp_func, &(info_t) {3}); // This will get the first data containing 3 from the list
+  // This will get the first data containing 3 from the list
+  info_t *info = ll_get_if(&list, cmp_func, &(info_t) {3}); 
   printf("%d\n", info->id);
 
   ll_destroy(&list);
