@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2018
-** zappy
-** File description:
-** who cares
-*/
-
 #pragma once
 
 #include <stddef.h>
@@ -12,10 +5,10 @@
 #include <stdint.h>
 
 typedef struct {
-    int top_index;
+    int top;
     size_t size;
     size_t member_size;
-    void *data_array;
+    void *data;
 } static_stack_t;
 
 static_stack_t *create_static_stack(size_t size, size_t member_size);
